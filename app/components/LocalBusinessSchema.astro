@@ -1,0 +1,35 @@
+---
+import { SITE } from "../config/site";
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "TouristTrip",
+  "name": SITE.name,
+  "description": SITE.description,
+  "url": SITE.url,
+  "telephone": SITE.phone,
+  "email": SITE.email,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kavos",
+    "addressRegion": "Corfu",
+    "addressCountry": "GR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 39.3893406,
+    "longitude": 20.1081247
+  },
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": SITE.name,
+    "telephone": SITE.phone,
+    "email": SITE.email,
+    "sameAs": [
+      SITE.socials.instagram,
+      SITE.socials.facebook,
+      SITE.socials.googleMaps
+    ]
+  }
+})} />

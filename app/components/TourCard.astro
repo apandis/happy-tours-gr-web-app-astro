@@ -1,0 +1,36 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  price?: number;
+  duration?: string;
+}
+
+const { slug, title, description, image, price, duration } = Astro.props;
+---
+
+<article class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+  <a href={`/tours/${slug}`}>
+    <img
+      src={image}
+      alt={title}
+      class="w-full h-52 object-cover"
+    />
+  </a>
+  <div class="p-5">
+    <div class="flex items-center justify-between mb-2">
+      <h3 class="text-xl font-bold text-blue-950">{title}</h3>
+      {price && <span class="text-amber-600 font-bold text-lg">€{price}</span>}
+    </div>
+    {duration && <p class="text-sm text-gray-500 mb-3">⏱ {duration}</p>}
+    <p class="text-gray-600 text-sm">{description}</p>
+    
+     <a href={`/tours/${slug}`}
+      class="mt-4 inline-block bg-blue-900 hover:bg-blue-800 text-white font-semibold px-5 py-2 rounded-lg text-sm transition-colors"
+    >
+      Learn More
+    </a>
+  </div>
+</article>

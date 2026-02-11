@@ -1,0 +1,104 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SITE } from "../../config/site";
+
+export async function getStaticPaths() {
+  const tours = await getCollection("tours");
+  return tours.map((tour) => ({
+    params: { slug: tour.id },
+    props: { tour },
+  }));
+}
+
+const { tour } = Astro.props;
+const { title, description, image, price, duration, departure, included, highlights } = tour.data;
+const { Content } = await render(tour);
+---
+
+<BaseLayout title={title} description={description} image={image} type="article">
+  <section class="relative h-80 md:h-96">
+    <img src={image} alt={title} class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-blue-950/50"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-white text-center">{title}</h1>
+    </div>
+  </section>
+
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="md:col-span-2">
+        <p class="text-lg text-gray-600 mb-8">{description}</p>
+
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-blue-950 mb-4">Highlights</h2>
+          <ul class="space-y-2">
+            {highlights.map((item) => (
+              <li class="flex items-start gap-2 text-gray-700">
+                <span class="text-amber-500 mt-1">✦</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="prose prose-blue max-w-none">
+          <Content />
+        </div>
+      </div>
+
+      <aside class="bg-white rounded-lg shadow-md p-6 h-fit sticky top-8">
+        <div class="text-center mb-6">
+          <p class="text-4xl font-bold text-amber-600">€{price}</p>
+          <p class="text-gray-500 text-sm">per person</p>
+        </div>
+
+        <div class="space-y-3 text-sm text-gray-700 mb-6">
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Duration</span>
+            <span class="font-semibold">{duration}</span>
+          </div>
+          <div class="flex justify-between border-b border-gray-100 pb-2">
+            <span>Departure</span>
+            <span class="font-semibold">{departure}</span>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h3 class="font-semibold text-blue-950 mb-2">What's Included</h3>
+          <ul class="space-y-1">
+            {included.map((item) => (
+              <li class="flex items-center gap-2 text-sm text-gray-700">
+                <span class="text-green-500">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        
+         <a href={`https://wa.me/${SITE.phoneRaw}?text=Hi! I'm interested in the ${title} tour.`}
+          target="_blank"
+          class="block w-full bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold py-3 rounded-lg text-center transition-colors"
+        >
+          Book via WhatsApp
+        </a>
+
+        
+         <a href={`mailto:${SITE.email}?subject=Booking: ${title}&body=Hi, I'd like to book the ${title} tour.`}
+          class="block w-full mt-3 border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white font-bold py-3 rounded-lg text-center transition-colors"
+        >
+          Email Us
+        </a>
+      </aside>
+
+    </div>
+
+    <div class="mt-12">
+      <a href="/tours" class="text-blue-900 hover:text-amber-500 font-semibold transition-colors">
+        ← Back to All Tours
+      </a>
+    </div>
+  </div>
+</BaseLayout>

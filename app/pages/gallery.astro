@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { GALLERY } from "../config/site";
+---
+
+<BaseLayout title="Gallery" description="Photos from our fishing tours and boat trips in Kavos, Corfu">
+  <PageHeader
+    title="Gallery"
+    subtitle="Moments from our tours — the catches, the views, and the memories"
+  />
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+      {GALLERY.map((photo) => (
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          class="w-full rounded-lg shadow-md hover:shadow-xl transition-shadow cursor-pointer break-inside-avoid"
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

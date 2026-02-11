@@ -1,0 +1,173 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import { SITE } from "../config/site";
+---
+
+<BaseLayout title="Contact Us" description={`Get in touch with ${SITE.name} to book your fishing tour in Kavos, Corfu`}>
+  <PageHeader
+    title="Contact Us"
+    subtitle="Ready to book? Get in touch and we'll set you up"
+  />
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <div>
+        <h2 class="text-2xl font-bold text-blue-950 mb-6">Get in Touch</h2>
+        <p class="text-gray-600 mb-8">
+          Whether you want to book a tour, ask a question, or just say hello — we'd love to hear from you. Reach us by phone, email, or visit us at the harbour.
+        </p>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📞</span>
+            <div>
+              <h3 class="font-semibold text-blue-950">Phone / WhatsApp</h3>
+              <a href={`tel:${SITE.phoneRaw}`} class="text-gray-600 hover:text-amber-500 transition-colors">{SITE.phone}</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">✉️</span>
+            <div>
+              <h3 class="font-semibold text-blue-950">Email</h3>
+              <a href={`mailto:${SITE.email}`} class="text-gray-600 hover:text-amber-500 transition-colors">{SITE.email}</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="text-2xl">📍</span>
+            <div>
+              <h3 class="font-semibold text-blue-950">Location</h3>
+              <a href={SITE.socials.googleMaps} target="_blank" class="text-gray-600 hover:text-amber-500 transition-colors">{SITE.location}</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <h3 class="font-semibold text-blue-950 mb-3">Follow Us</h3>
+          <div class="flex gap-4">
+            <a href={SITE.socials.instagram} target="_blank" class="bg-blue-900 hover:bg-amber-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Instagram</a>
+            <a href={SITE.socials.facebook} target="_blank" class="bg-blue-900 hover:bg-amber-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Facebook</a>
+            <a href={SITE.socials.googleMaps} target="_blank" class="bg-blue-900 hover:bg-amber-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">Google Maps</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-bold text-blue-950 mb-6">Send Us a Message</h2>
+        <form id="contact-form" class="space-y-5">
+          <div>
+            <label for="name" class="block text-sm font-semibold text-blue-950 mb-1">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-blue-950 mb-1">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            />
+          </div>
+
+          <div>
+            <label for="tour" class="block text-sm font-semibold text-blue-950 mb-1">Tour Interest</label>
+            <select
+              id="tour"
+              name="tour"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            >
+              <option value="">Select a tour (optional)</option>
+              <option value="Blue Lagoon Sivota">Blue Lagoon Sivota</option>
+              <option value="Sunset Tour">Sunset Tour</option>
+              <option value="Paxos & Antipaxos">Paxos & Antipaxos</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-semibold text-blue-950 mb-1">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold py-3 rounded-lg transition-colors"
+          >
+            Send Message
+          </button>
+
+          <p id="form-status" class="text-center text-sm hidden"></p>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="mt-16">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d742!2d20.1081247!3d39.3893406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135c9b9d0d9aed27%3A0xc5a80e5d463d3a4!2sHappy%20Tours%20Kavos!5e0!3m2!1sen!2sgr"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        class="rounded-lg shadow-md"
+      ></iframe>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const status = document.getElementById("form-status") as HTMLParagraphElement;
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      tour: (form.elements.namedItem("tour") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        window.location.href = "/thank-you";
+      } else {
+        throw new Error();
+      }
+    } catch {
+      status.textContent = "Something went wrong. Please try again or contact us directly.";
+      status.classList.remove("hidden");
+      status.classList.add("text-red-500");
+      btn.disabled = false;
+      btn.textContent = "Send Message";
+    }
+  });
+</script>

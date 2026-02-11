@@ -1,0 +1,31 @@
+---
+interface Props {
+  heading: string;
+  subheading: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  heading,
+  subheading,
+  ctaText = "Book a Tour",
+  ctaLink = "/tours",
+} = Astro.props;
+---
+
+<section class="relative bg-blue-950 text-white py-32">
+  <div class="absolute inset-0 bg-[url('/images/hero.jpg')] bg-cover bg-center opacity-40"></div>
+  <div class="relative max-w-4xl mx-auto px-4 text-center">
+    <h1 class="text-5xl md:text-6xl font-bold leading-tight">{heading}</h1>
+    <p class="mt-6 text-xl md:text-2xl text-blue-200">{subheading}</p>
+    {ctaText && ctaLink && (
+      <a
+        href={ctaLink}
+        class="mt-8 inline-block bg-amber-500 hover:bg-amber-600 text-blue-950 font-bold px-8 py-4 rounded-lg text-lg transition-colors"
+      >
+        {ctaText}
+      </a>
+    )}
+  </div>
+</section>
