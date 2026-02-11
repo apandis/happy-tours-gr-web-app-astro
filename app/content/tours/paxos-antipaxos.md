@@ -1,7 +1,7 @@
 ---
 title: "Paxos & Antipaxos"
 description: "Discover hidden gems, swim in crystal clear waters, and enjoy fishing with fresh fish prepared on board."
-image: "/images/tours/paxos.jpg"
+image: "/images/paxos-antipaxos-caves.jpg"
 price: 55
 duration: "10 hours"
 departure: "08:00 AM"

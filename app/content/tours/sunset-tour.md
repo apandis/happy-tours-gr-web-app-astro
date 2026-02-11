@@ -1,7 +1,7 @@
 ---
 title: "Sunset Tour"
 description: "Relax on a serene evening tour with fishing and complimentary drinks while enjoying a stunning sunset."
-image: "/images/tours/sunset.jpg"
+image: "/images/sivota-sunset-tour.jpg"
 price: 35
 duration: "4 hours"
 departure: "05:00 PM"

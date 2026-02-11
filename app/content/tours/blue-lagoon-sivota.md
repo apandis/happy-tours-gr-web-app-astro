@@ -1,7 +1,7 @@
 ---
 title: "Blue Lagoon Sivota"
 description: "Enjoy a short trip to the beautiful Blue Lagoon. Swim, explore caves, and fish with all gear provided."
-image: "/images/tours/blue-lagoon.jpg"
+image: "/images/blue-lagoon-beach-sivota.jpg"
 price: 45
 duration: "8 hours"
 departure: "09:00 AM"

@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Happy Tours Kavos",
+  name: "Happy Tours",
   tagline: "Fishing Adventures and Sunset Cruises in Corfu",
   description:
     "Enjoy daily cruises from Kavos to the Blue Lagoon, Paxos, and more, all with a fun fishing experience!",
@@ -88,39 +88,39 @@ export const FAQS = [
 
 export const GALLERY = [
   {
-    src: "/images/gallery/catch-1.jpg",
+    src: "/images/blue-lagoon-beach-sivota.jpg",
     alt: "Big catch of the day on our Blue Lagoon tour",
   },
   {
-    src: "/images/gallery/blue-lagoon.jpg",
+    src: "/images/blue-lagoon-cave-sivota.jpg",
     alt: "Crystal clear waters of the Blue Lagoon",
   },
   {
-    src: "/images/gallery/sunset.jpg",
+    src: "/images/paxos-antipaxos-caves.jpg",
     alt: "Stunning sunset over the Ionian Sea",
   },
   {
-    src: "/images/gallery/paxos.jpg",
+    src: "/images/paxos-blue-caves.jpg",
     alt: "Turquoise waters of Antipaxos beach",
   },
   {
-    src: "/images/gallery/fishing.jpg",
+    src: "/images/blue-lagoon-beach-sivota.jpg",
     alt: "Guests enjoying fishing on board",
   },
   {
-    src: "/images/gallery/caves.jpg",
+    src: "/images/blue-lagoon-cave-sivota.jpg",
     alt: "Exploring hidden sea caves along the coast",
   },
   {
-    src: "/images/gallery/boat.jpg",
+    src: "/images/paxos-antipaxos-caves.jpg",
     alt: "Our boat ready for departure at Kavos harbour",
   },
   {
-    src: "/images/gallery/snorkeling.jpg",
+    src: "/images/blue-lagoon-cave-sivota.jpg",
     alt: "Snorkeling in crystal clear waters",
   },
   {
-    src: "/images/gallery/group.jpg",
+    src: "/images/blue-lagoon-beach-sivota.jpg",
     alt: "Happy group after a full day fishing tour",
   },
 ];
