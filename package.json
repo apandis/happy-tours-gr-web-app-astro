@@ -1,18 +1,32 @@
 {
   "name": "happy-tours-gr-web-app",
+  "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.17.1",
-    "tailwindcss": "^4.1.18"
+    "@azure/communication-email": "^1.1.0",
+    "@azure/cosmos": "^4.9.3",
+    "@azure/identity": "^4.13.1",
+    "@azure/service-bus": "^7.9.5",
+    "@mdi/font": "^7.4.47",
+    "@nuxt/content": "^3.13.0",
+    "@nuxtjs/i18n": "^10.3.0",
+    "better-sqlite3": "^12.9.0",
+    "flag-icons": "^7.5.0",
+    "lightningcss": "^1.32.0",
+    "nuxt": "^4.4.2",
+    "nuxt-gtag": "^4.1.0",
+    "sass": "^1.99.0",
+    "typescript": "^5.9.3",
+    "v-phone-input": "^7.0.0",
+    "vuetify": "^4.0.6",
+    "vuetify-nuxt-module": "^0.19.5",
+    "zod": "^3.25.76"
   }
 }
